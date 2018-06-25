@@ -28,7 +28,7 @@ jQuery('#message-form').on('submit', function (e) {
 });
 
 var locationbutton = jQuery('#send-location');
-locationbutton.click( function (e) {
+locationbutton.on('click', function (e) {
   if(!navigator.geolocation){
     return alert('Geolocation doesn\'t supported by your browser' );
   }
