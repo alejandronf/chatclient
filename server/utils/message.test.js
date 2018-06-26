@@ -30,6 +30,5 @@ describe('generateLocationMessage', () => {
     expect(typeof  message.createdAt).toBe('number');
     expect(typeof  message.url).toBe('string');
     expect(message.url).toBe(url);
-
   });
 });
