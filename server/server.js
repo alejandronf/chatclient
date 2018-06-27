@@ -25,7 +25,7 @@ io.on('connection', (socket) => {
     callback('This is from the server.');
   });
   socket.on('createLocationMessage', (coords) => {
-    io.emit('newLocationMessage', generateLocationMessage('Admin', coords.latitude, coords.longitude))
+    io.emit('newLocationMessage', generateLocationMessage('AdLocator', coords.latitude, coords.longitude))
   });
   socket.on('disconnect', () => {
     console.log('User was disconnected');
