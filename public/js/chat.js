@@ -1,3 +1,9 @@
+/*global moment*/
+/*global jQuery*/
+/*global io*/
+/*global Mustache*/
+/*global navigator*/
+
 var socket = io();
 
 function scrollToBottom () {
@@ -36,9 +42,16 @@ socket.on('disconnect', function () {
 
 socket.on('updateUserList', function (users) {
   console.log('Users list',users);
+  var ol = jQuery('<ol></ol>');
+  users.forEach(function (user) {
+    ol.append(jQuery('<li></li>').text(user));
+  });
+  jQuery('#users').html(ol);
+  
 });
 
 socket.on('newMessage', function (message) {
+  
   var formattedTime = moment(message.createdAt).format('h:mm a');
   var template = jQuery('#message-template').html();
   var html = Mustache.render(template, {
